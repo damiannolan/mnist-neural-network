@@ -2,7 +2,7 @@
 # MNIST Dataset - Neural Network for handwritten digits using Keras - a high-level neural networks API
 # Adapted from:
 #   Keras Examples - https://github.com/fchollet/keras/tree/master/examples
-#   Ian McLoughlin - https://github.com/emerging-technologies/keras-iris
+#   Dr. Ian McLoughlin - https://github.com/emerging-technologies/keras-iris
 
 import numpy as np 
 import keras as kr
@@ -46,14 +46,14 @@ y_test = kr.utils.to_categorical(y_test, num_classes)
 model = kr.models.Sequential()
 
 # Add an initial layer of 512 hidden nodes with input_shape 784
-# The layer applies the Sigmoid activation function
-model.add(kr.layers.Dense(512, activation='sigmoid', input_shape=(784,)))
-# Add a second hidden layer
-model.add(kr.layers.Dense(512, activation='sigmoid'))
+# Add a second layer of 512 hidden nodes
+# These layers apply the Sigmoid activation function
 # Add the ouput layer with 10 nodes - one per class/digit
 # Apply Softmax activation function
 # Softmax regression is very commonly used in ML for multi-class classification 
 #   - assuming classes are mutually exclusive. 
+model.add(kr.layers.Dense(512, activation='sigmoid', input_shape=(784,)))
+model.add(kr.layers.Dense(512, activation='sigmoid'))
 model.add(kr.layers.Dense(num_classes, activation='softmax'))
 
 # Use Model Summary to display a summary in the terminal
