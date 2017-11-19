@@ -35,3 +35,24 @@ print('Test samples: %d' % x_test.shape[0])
 # See: https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f
 y_train = kr.utils.to_categorical(y_train, num_classes)
 y_test = kr.utils.to_categorical(y_test, num_classes)
+
+# Create a neural network using Keras' Sequential Model
+# Ref: https://keras.io/getting-started/sequential-model-guide/
+# The Model is a linear stack of layers which define a neural network
+# This encapsulates training, evaluation and predictions similarly to Tensorflow Estimators
+# See: https://www.tensorflow.org/versions/r1.3/programmers_guide/estimators
+model = kr.models.Sequential()
+
+# Add an initial layer of 512 hidden nodes with input_shape 784
+# The layer applies the Sigmoid activation function
+model.add(kr.layers.Dense(512, activation='sigmoid', input_shape=(784,)))
+# Add a second hidden layer
+model.add(kr.layers.Dense(512, activation='sigmoid'))
+# Add the ouput layer with 10 nodes - one per class/digit
+# Apply Softmax activation function
+# Softmax regression is very commonly used in ML for multi-class classification 
+#   - assuming classes are mutually exclusive. 
+model.add(kr.layers.Dense(num_classes, activation='softmax'))
+
+# Use Model Summary to display a summary in the terminal
+model.summary()
