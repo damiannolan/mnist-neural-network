@@ -29,10 +29,11 @@ def upload_file():
     #print(img.tobytes())
     #img.save('img/resize.png')
     
-    test_images = np.array([pix])
-    preds = list(model.predict(test_images))
-    print(preds[0])
-    prediction = np.argmax(preds[0])
+    test_image = np.array([pix])
+    prediction = list(model.predict(test_image))
+    print(prediction[0])
+    prediction = np.argmax(prediction[0])
+
     return jsonify(str(prediction))
 
 if __name__ == '__main__':
