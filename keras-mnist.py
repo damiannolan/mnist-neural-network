@@ -62,7 +62,7 @@ model.summary()
 # Configure the model for training.
 # Use Adam Optimizer & Categorical cross entropy as the loss function.
 # Add in some extra metrics - accuracy being the only one.
-model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Fit the model using our training data.
 model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
@@ -70,4 +70,7 @@ model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
 # Evaluate the model using the test data set.
 loss, accuracy = model.evaluate(x_test, y_test, verbose=1)
 # Output the accuracy of the model.
-print("\n\nLoss: %6.4f\tAccuracy: %6.4f" % (loss, accuracy))
+print('\n\nLoss: %6.4f\tAccuracy: %6.4f' % (loss, accuracy))
+
+# Save the model
+model.save('mnist-neural.h5')
