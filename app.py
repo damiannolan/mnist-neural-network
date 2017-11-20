@@ -2,17 +2,37 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from PIL import Image
 
+import keras as kr
+import numpy as np 
+
 app = Flask(__name__)
 CORS(app)
+
+model = kr.models.load_model('mnist-neural.h5')
+
+model.summary()
 
 @app.route('/upload', methods = ['POST'])
 def upload_file():
     img = Image.open(request.files['file'].stream).convert('L')
     img = img.resize((28, 28))
-    img.show()
-    img.save('img/resize.png')
+    #img.show()
+    pix = np.array(img).astype(np.float32)
+    print(pix)
+    print(pix.shape)
+    print(pix.dtype)
 
-    prediction = 4
+    pix = pix.reshape(784)
+    #pix /= 255
+    print(pix)
+    print(pix.shape)
+    #print(img.tobytes())
+    #img.save('img/resize.png')
+    
+    test_images = np.array([pix])
+    preds = list(model.predict(test_images))
+    print(preds[0])
+    prediction = np.argmax(preds[0])
     return jsonify(str(prediction))
 
 if __name__ == '__main__':
