@@ -8,7 +8,7 @@ import numpy as np
 import keras as kr
 
 batch_size = 128
-epochs = 5
+epochs = 20
 num_classes = 10
 
 # Import the mnist dataset from Keras
