@@ -6,7 +6,7 @@ An Artificial Neural Network written using Keras / Tensorflow for prediction of 
 
 This repository contains a [Flask Python](http://flask.pocoo.org/) Application which is intended to serve as a Back-End Server API used in conjunction with an Angular Client Application which can be found [HERE!](https://github.com/damiannolan/mnist-ngclient) 
 
-The Flask App provides one end-point `/uploads` in which a function is called to make a prediction of the image passed in the request object and return to that prediction to the client.
+The Flask App provides one end-point `/uploads` in which a function is called to make a prediction of the image passed in the request object and return that prediction to the client. The application employs [Pillow](https://pypi.python.org/pypi/Pillow/2.2.1) and [Numpy](http://www.numpy.org/) in order to manipulate the image converting it to grayscale, resizing and transforming to an array of pixels in prepartion for passing it to the Model for prediction.
 
 ## MNIST Data Set
 
