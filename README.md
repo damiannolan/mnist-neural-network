@@ -12,6 +12,10 @@ The Flask App provides one end-point `/uploads` in which a function is called to
 
 The MNIST data set of handwritten digits is a subset of a larger set available from [NIST](https://www.nist.gov/). MNIST contains a training set of 60,000 samples and test set of 10,000 samples. The digits have been size-normailised and centered in a fixed-size image. This application employs the MNIST data set in order to train, evaluate and predict using a [Keras](https://keras.io) Neural Network Model.
 
+Example of MNIST Digits
+
+![MNISTDigits](http://neuralnetworksanddeeplearning.com/images/mnist_100_digits.png)
+
 ## Neural Networks
 
 A more detailed tutorial on Neural Networks can be found in another one of my repositories that is located [HERE!](https://github.com/damiannolan/iris-neural-network) The repository contains a Jupyter Notebook in which an artifical neural network is used to train a model for predicting species of Iris Flower. The same logic is applied in this application as it also deals with categorical data.
