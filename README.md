@@ -14,9 +14,38 @@ The MNIST data set of handwritten digits is a subset of a larger set available f
 
 ## Prerequistes
 
-[Tensorflow](https://www.tensorflow.org/)
+As this is a Python based application, Python is a must and can be downloaded from the [Anaconda](https://www.anaconda.com/download/) open distribution which includes all of the . If you are on OSX you can simply install Python using [Homebrew](https://brew.sh/) and install dependencies such as SciPy and Pillow as needed using the pip package manager.
 
-[Keras](https://keras.io)
+```
+brew install python3
+```
 
-[Flask](http://flask.pocoo.org/)
+```
+pip3 install scipy
+```
 
+```
+pip3 install Pillow
+```
+
+Follow the instructions for installing the following dependcies.
+
+- [Tensorflow](https://www.tensorflow.org/)
+
+- [Keras](https://keras.io)
+
+- [Flask](http://flask.pocoo.org/)
+
+## Getting Started
+
+1. Clone this repository
+
+```
+git clone https://github.com/damiannolan/mnist-neural-network.git
+```
+
+2. Start the server application
+
+```
+python3 app.py
+```
